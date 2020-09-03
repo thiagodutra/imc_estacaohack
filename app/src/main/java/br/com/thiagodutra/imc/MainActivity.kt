@@ -17,10 +17,6 @@ class MainActivity : AppCompatActivity() {
             val lAltura = altura.split(".",",")
             val lPeso = peso.split(".",",")
 
-            if(altura.isEmpty() || peso.isEmpty()) {
-                return false
-            }
-
             if(lAltura.size <= 1 || lPeso.size <=1) {
                 return false
             }

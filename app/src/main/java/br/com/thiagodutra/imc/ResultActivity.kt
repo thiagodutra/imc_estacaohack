@@ -47,20 +47,28 @@ class ResultActivity : AppCompatActivity() {
         } else {
             txvResultMessage.text = defaultText
         }
-        if (imc >= 1 && imc < MUITO_ABAIXO_DO_PESO) {
-            imgViewer.setImageResource(R.drawable.imc_under_17)
-        } else if (imc >= MUITO_ABAIXO_DO_PESO && imc < ABAIXO_DO_PESO) {
-            imgViewer.setImageResource(R.drawable.imc_between_17_1849)
-        } else if (imc >= ABAIXO_DO_PESO && imc < PESO_NORMAL) {
-            imgViewer.setImageResource(R.drawable.imc_between_18_5_25)
-        } else if (imc >= PESO_NORMAL && imc < ACIMA_DO_PESO) {
-            imgViewer.setImageResource(R.drawable.imc_between_25_30)
-        } else if (imc >= ACIMA_DO_PESO && imc < OBESIDADE_1) {
-            imgViewer.setImageResource(R.drawable.imc_between_30_34)
-        } else if (imc >= OBESIDADE_1 && imc < OBESIDADE_2) {
-            imgViewer.setImageResource(R.drawable.imc_between_35_40)
-        } else if (imc >= OBESIDADE_2) {
-            imgViewer.setImageResource(R.drawable.imc_above_40)
+        when  {
+            imc < MUITO_ABAIXO_DO_PESO -> {
+                imgViewer.setImageResource(R.drawable.imc_under_17)
+            }
+            imc < ABAIXO_DO_PESO -> {
+                imgViewer.setImageResource(R.drawable.imc_between_17_1849)
+            }
+            imc < PESO_NORMAL -> {
+                imgViewer.setImageResource(R.drawable.imc_between_18_5_25)
+            }
+            imc < ACIMA_DO_PESO -> {
+                imgViewer.setImageResource(R.drawable.imc_between_25_30)
+            }
+            imc < OBESIDADE_1 -> {
+                imgViewer.setImageResource(R.drawable.imc_between_30_34)
+            }
+            imc < OBESIDADE_2 -> {
+                imgViewer.setImageResource(R.drawable.imc_between_35_40)
+            }
+            else -> {
+                imgViewer.setImageResource(R.drawable.imc_above_40)
+            }
         }
 
         btnResultRecalcular.setOnClickListener{
