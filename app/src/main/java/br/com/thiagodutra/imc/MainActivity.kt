@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             else if (!validateInput(altura, peso)){
                 Toast.makeText(this, "Valores de altura ou peso inválidos", Toast.LENGTH_SHORT).show()
             } else {
-                val imc = peso.toDouble() / (altura.toDouble() * altura.toDouble())
+                val imc = peso.toDouble() / (altura.toDouble().pow(2.0))
                 val mIntent = Intent(this, ResultActivity::class.java)
                 mIntent.putExtra("IMC", imc)
                 startActivity(mIntent)
